@@ -1,0 +1,44 @@
+# Large data files (too big for GitHub)
+data/ca_iso.pkl
+data/*.pkl
+
+# Generated datasets and results
+runs/
+__pycache__/
+*.pyc
+*.pyo
+
+# Large download files
+downloads/*.csv
+downloads/*.xlsx
+downloads/*.zip
+downloads/*.pdf
+
+# Environment and credentials
+.env
+*.token
+.venv/
+venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.log
+
+# Keep smaller data files for demo
+!data/afdc_ev_stations_sf.parquet
+!data/ca_dg_sf.parquet
+!data/meteostat_hourly.parquet
+!data/caiso_forecast_comparison.parquet

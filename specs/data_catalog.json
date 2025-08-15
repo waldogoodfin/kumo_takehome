@@ -1,0 +1,332 @@
+{
+  "load": {
+    "id": "load",
+    "title": "CPAU Aggregate Load (Hourly)",
+    "description": "City-level net load; prefer 15-min aggregated to hourly; >=3 years",
+    "source_url": "internal:CPAU",
+    "api_docs_url": null,
+    "license": "By agreement with CPAU",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "manual_export_or_api",
+      "params": {}
+    },
+    "refresh_cadence": "daily",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto (city)"
+    },
+    "contact_or_owner": "CPAU",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "outages": {
+    "id": "outages",
+    "title": "CPAU Outage Events (OMS)",
+    "description": "Outage start/end with causes and affected area/feeder",
+    "source_url": "https://www.paloalto.gov/Departments/Utilities/Utilities-Services-Safety/Outages?utm_source=openai",
+    "api_docs_url": null,
+    "license": "By agreement with CPAU",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "manual_export_or_api",
+      "params": {}
+    },
+    "refresh_cadence": "daily",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto (city)"
+    },
+    "contact_or_owner": "CPAU OMS",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "forecast_archive": {
+    "id": "forecast_archive",
+    "title": "NWS Hourly Forecast Archive (Gridpoints)",
+    "description": "Store each forecast issuance (1\u20137 day hourly horizons) with issuance timestamps to model rolling forecasts",
+    "source_url": "https://api.weather.gov",
+    "api_docs_url": "https://www.weather.gov/documentation/services-web-api",
+    "license": "US Government open data",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "api",
+      "params": {
+        "lat": 37.4419,
+        "lon": -122.143,
+        "archive": true
+      }
+    },
+    "refresh_cadence": "hourly",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto vicinity"
+    },
+    "contact_or_owner": "NWS",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "weather_hist": {
+    "id": "weather_hist",
+    "title": "Hourly Weather History (Meteostat)",
+    "description": "Nearest station hourly weather for Palo Alto area",
+    "source_url": "https://dev.meteostat.net/",
+    "api_docs_url": "https://dev.meteostat.net/python/hourly.html",
+    "license": "As per Meteostat terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "api",
+      "params": {
+        "lat": 37.4419,
+        "lon": -122.143
+      }
+    },
+    "refresh_cadence": "monthly backfill",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto vicinity"
+    },
+    "contact_or_owner": "Public",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "weather_fcst": {
+    "id": "weather_fcst",
+    "title": "NWS Hourly Forecast (Gridpoints)",
+    "description": "1\u20137 day hourly forecast via NWS gridpoints API",
+    "source_url": "https://api.weather.gov",
+    "api_docs_url": "https://www.weather.gov/documentation/services-web-api",
+    "license": "US Government open data",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "api",
+      "params": {
+        "lat": 37.4419,
+        "lon": -122.143
+      }
+    },
+    "refresh_cadence": "hourly",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto vicinity"
+    },
+    "contact_or_owner": "NWS",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "calendar": {
+    "id": "calendar",
+    "title": "Calendar & Holidays",
+    "description": "Hour-of-day, day-of-week, US holidays, school and local events",
+    "source_url": "https://pypi.org/project/holidays/",
+    "api_docs_url": "https://pypi.org/project/holidays/",
+    "license": "BSD (library)",
+    "attribution_required": false,
+    "retrieval": {
+      "method": "library",
+      "params": {
+        "country": "US"
+      }
+    },
+    "refresh_cadence": "annual",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "US/Palo Alto"
+    },
+    "contact_or_owner": "Public",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "grid_stress": {
+    "id": "grid_stress",
+    "title": "CAISO Stress Proxies (DLAP/NP15 LMP, Today\u2019s Outlook)",
+    "description": "Market/operational stress features (prefer DLAP_PGAE-APND LMP; fallback NP15; plus statewide demand/alerts)",
+    "source_url": "http://oasis.caiso.com/oasisapi/",
+    "api_docs_url": "http://oasis.caiso.com/mrioasis/",
+    "license": "CAISO terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "api",
+      "params": {
+        "dlap_node": "DLAP_PGAE-APND",
+        "oasis_node_fallback": "TH_NP15",
+        "market_run_id": "DAM",
+        "todays_outlook_json": "http://content.caiso.com/outlook/SystemLoad.json"
+      }
+    },
+    "refresh_cadence": "daily",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "CAISO DLAP PG&E / NP15 / statewide"
+    },
+    "contact_or_owner": "CAISO",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "der": {
+    "id": "der",
+    "title": "Distributed Energy Resources (Interconnections)",
+    "description": "Installed kW by ZIP/feeder; interconnection dates",
+    "source_url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/net-energy-metering",
+    "api_docs_url": null,
+    "license": "Agency/utility terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "download_or_api",
+      "params": {}
+    },
+    "refresh_cadence": "quarterly",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto / Santa Clara County"
+    },
+    "contact_or_owner": "CPUC/Utility",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "ev_proxy": {
+    "id": "ev_proxy",
+    "title": "EV Charging Infrastructure (AFDC)",
+    "description": "Public charging stations/ports for EV adoption proxy features",
+    "source_url": "https://afdc.energy.gov/data",
+    "api_docs_url": "https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/",
+    "license": "DOE/NREL terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "api",
+      "params": {
+        "fuel_type": "ELEC"
+      }
+    },
+    "refresh_cadence": "monthly",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto / Bay Area"
+    },
+    "contact_or_owner": "DOE NREL AFDC",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "mobility": {
+    "id": "mobility",
+    "title": "Traffic Counts (Caltrans PeMS)",
+    "description": "Hourly traffic counts as behavioral proxy",
+    "source_url": "https://pems.dot.ca.gov/",
+    "api_docs_url": "https://pems.dot.ca.gov/?dnode=Docs",
+    "license": "Agency terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "portal_or_api",
+      "params": {}
+    },
+    "refresh_cadence": "monthly",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Peninsula"
+    },
+    "contact_or_owner": "Caltrans",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "assets": {
+    "id": "assets",
+    "title": "Grid Assets (Transformers/Substations)",
+    "description": "Ratings, peak loading, age; internal for feeder-level modeling",
+    "source_url": "internal:CPAU",
+    "api_docs_url": null,
+    "license": "By agreement with CPAU",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "internal_systems",
+      "params": {}
+    },
+    "refresh_cadence": "as updated",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto (grid assets)"
+    },
+    "contact_or_owner": "CPAU",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "irradiance": {
+    "id": "irradiance",
+    "title": "Solar Irradiance (NSRDB/CAMS)",
+    "description": "Hourly GHI/DNI/DHI and cloud cover for PV production proxies",
+    "source_url": "https://nsrdb.nrel.gov/",
+    "api_docs_url": "https://developer.nrel.gov/docs/solar/nsrdb/",
+    "license": "NREL/NOAA terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "api",
+      "params": {
+        "lat": 37.4419,
+        "lon": -122.143
+      }
+    },
+    "refresh_cadence": "monthly backfill",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Palo Alto vicinity"
+    },
+    "contact_or_owner": "NREL",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "ev_registrations": {
+    "id": "ev_registrations",
+    "title": "EV Registrations (CA DMV or third-party)",
+    "description": "Counts of registered EVs by geography and date for EV adoption proxy",
+    "source_url": null,
+    "api_docs_url": null,
+    "license": "Agency/3rd-party terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "download_or_api",
+      "params": {}
+    },
+    "refresh_cadence": "quarterly",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Santa Clara County / Palo Alto"
+    },
+    "contact_or_owner": "CA DMV / vendor",
+    "last_updated_utc": null,
+    "checksum": null
+  },
+  "outage_public_proxy": {
+    "id": "outage_public_proxy",
+    "title": "Public Outage Proxy (Aggregators)",
+    "description": "Public outage counts by jurisdiction as proxy when OMS access is limited",
+    "source_url": null,
+    "api_docs_url": null,
+    "license": "Site terms",
+    "attribution_required": true,
+    "retrieval": {
+      "method": "scrape_or_api",
+      "params": {}
+    },
+    "refresh_cadence": "hourly or event-driven",
+    "coverage": {
+      "time_start": null,
+      "time_end": null,
+      "geography": "Santa Clara County / Palo Alto"
+    },
+    "contact_or_owner": "Public aggregator",
+    "last_updated_utc": null,
+    "checksum": null
+  }
+}
