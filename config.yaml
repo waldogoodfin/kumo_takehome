@@ -189,7 +189,7 @@ kumo:
   
   # Model training parameters
   training:
-    sample_sizes: [10, 25, 50]
+    sample_sizes: [100, 300, 1000]
     table_name_prefix: "temporal_"
     primary_key: "consumption_id"
   
