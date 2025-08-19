@@ -189,7 +189,7 @@ kumo:
   
   # Model training parameters
   training:
-    sample_sizes: [10, 25, 50]
+    sample_sizes: [100, 300, 1000]
     table_name_prefix: "temporal_"
     primary_key: "consumption_id"
   
@@ -223,6 +223,7 @@ feature_selection:
       - "forecast_7da_mw"
       - "forecast_2da_mw"
       - "forecast_dam_mw"
+      - "timestamp"  # CRITICAL: needed for temporal validation
     
     temporal:
       - "hour"
@@ -260,10 +261,10 @@ feature_selection:
       - "daily_min_mw"
       - "daily_avg_mw"
   
-  # Columns to exclude
+  # Columns to exclude (timestamp preserved for temporal validation)
   exclude_columns:
-    - "timestamp"
     - "OPR_DT"
+    # - "timestamp"  # REMOVED: timestamp needed for temporal validation!
   
   # NaN handling strategies by column type
   nan_handling:

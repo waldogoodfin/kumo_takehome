@@ -42,3 +42,5 @@ Thumbs.db
 !data/ca_dg_sf.parquet
 !data/meteostat_hourly.parquet
 !data/caiso_forecast_comparison.parquet
+
+*ipynb
