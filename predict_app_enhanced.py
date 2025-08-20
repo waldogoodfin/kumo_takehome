@@ -14,7 +14,6 @@ from config_loader import ConfigLoader
 
 # Load environment variables from .env file
 load_dotenv()
-KUMO_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1YTA5ZTgxMzIzMzVmYWMyNTQyODU3NDhhNTEyY2IyZCIsImp0aSI6ImMxYWU5YTM3LTQ5YWMtNDU3OC05ZGUwLTMzM2ViMGYyYzM3OSIsImlhdCI6MTc1NTQ5ODEwNywiZXhwIjoxNzYwNjgyMTA3fQ.1Tp-UoRW-XgnHcyB2-p8MoU-R5OJ_gMCPIETNKC-Tu4"
 # Ensure the API key is set before initializing the library
 if KUMO_API_KEY:
     rfm.init(api_key=KUMO_API_KEY)
