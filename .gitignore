@@ -1,46 +1,83 @@
-# Large data files (too big for GitHub)
-data/ca_iso.pkl
-data/*.pkl
+# Data files
+data/
+downloads/
 
-# Generated datasets and results
-runs/
+# Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Large download files
-downloads/*.csv
-downloads/*.xlsx
-downloads/*.zip
-downloads/*.pdf
-
-# Environment and credentials
-.env
-*.token
-.venv/
+# Virtual environments
 venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 
-# IDE files
+# IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
-# OS files
+# OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Jupyter notebooks checkpoints
-.ipynb_checkpoints/
-
-# Temporary files
-*.tmp
+# Logs
 *.log
+logs/
 
-# Keep smaller data files for demo
-!data/afdc_ev_stations_sf.parquet
-!data/ca_dg_sf.parquet
-!data/meteostat_hourly.parquet
-!data/caiso_forecast_comparison.parquet
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-*ipynb
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React build
+build/
+dist/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Other project directories (nested repos)
+kumo_hackathon/
+kumo_takehome/
+자동차프롬프트/
+
+# Runs and temporary files
+runs/
+*.tmp
+*.temp
