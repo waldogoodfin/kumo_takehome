@@ -133,11 +133,8 @@ except FileNotFoundError:
 ```
 
 ### **Why This Approach Works**
-1. **Demo Authenticity**: Real products make every search feel genuine
-2. **Scalable Testing**: Can generate any volume of transaction data needed
-3. **Privacy Compliance**: No real customer PII required
-4. **Reproducible Results**: Seeded random generation for consistent demos
-5. **Production Ready**: Easy to swap synthetic data for real data streams
+1. **Reproducible Results**: Seeded random generation for consistent demos
+2. **Production Ready**: Easy to swap synthetic data for real data streams
 
 ### **Data Quality Measures**
 - **Realistic distributions**: Transaction amounts, frequencies, and patterns mirror real e-commerce
@@ -146,6 +143,34 @@ except FileNotFoundError:
 - **Customer behavior**: Segments show distinct purchasing patterns and preferences
 
 This hybrid approach (real products + synthetic transactions) provides the authenticity needed for compelling demos while maintaining the flexibility to showcase all system capabilities without data dependencies.
+
+### **Future Enhancements: More Realistic Synthetic Data**
+With additional time, we would significantly enhance the synthetic data generation to better mirror real-world e-commerce patterns:
+
+#### **Advanced Customer Modeling**
+- **Behavioral segmentation** based on purchase frequency, brand loyalty, and price sensitivity
+- **Geographic clustering** to simulate regional shopping preferences and seasonal variations
+- **Lifecycle modeling** (new customers vs. returning customers with different purchase patterns)
+- **Cross-category preferences** (customers who buy dresses also buy shoes, accessories)
+
+#### **Sophisticated Transaction Patterns**
+- **Realistic seasonality** with fashion cycles, holiday spikes, and clearance periods
+- **Product lifecycle curves** (new arrivals → peak sales → markdown → clearance)
+- **Bundle purchasing** (customers buying complete outfits, not just individual items)
+- **Return and exchange patterns** that affect net sales calculations
+
+#### **Market-Driven Dynamics**
+- **Trend propagation** where popular items influence sales of similar products
+- **Inventory constraints** affecting availability and creating scarcity effects
+- **Competitive pricing impacts** on demand elasticity
+- **Marketing campaign effects** with realistic attribution and decay curves
+
+#### **Data Validation Framework**
+- **Statistical testing** against known e-commerce benchmarks (conversion rates, AOV, frequency)
+- **A/B testing simulation** to validate that synthetic data produces realistic experimental results
+- **Cohort analysis validation** ensuring customer lifetime value patterns make sense
+
+**The current synthetic data serves the demo purpose well, but production-grade synthetic data would require deeper domain expertise and more sophisticated modeling to truly replicate the complexity of real customer behavior.**
 
 ---
 
@@ -198,20 +223,6 @@ npm start
 - API docs: http://localhost:8000/docs
 
 ---
-
-## To Try the System
-
-### 🎯 **Hero Demo Flow**
-1. **Open the hero page** → http://localhost:3000
-2. **Search "Lisbon tencel dress"** → Shows hybrid search with LLM intent parsing
-3. **Click the top result** → Opens comprehensive insights modal with:
-   - **Sales Trend**: "Sales increased by $242.29 last month" 
-   - **Next Month Forecast**: $512.15 (Medium confidence)
-   - **Customer Segments**: Fashion Enthusiasts (42%), Value Seekers (33%), Trend Followers (25%)
-   - **AI Insights**: Aggressive, consultant-level recommendations with specific budgets and tactics
-   - **Counterfactual Scenarios**: Influencer Boost (+18%), Bundle Offer (+12%), Geo-Targeted Ads (+8%)
-   - **Similar Products**: Department and type-based recommendations
-
 ### 🔄 **Alternative Demo Queries**
 - **"RIHANNA dress"** → Shows graceful handling of products with no sales data
 - **"winter coat under 500"** → Demonstrates LLM intent classification and price filtering
