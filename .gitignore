@@ -1,6 +1,7 @@
 # Data files
-data/
 downloads/
+# Exclude large customer data file (160MB - exceeds GitHub limit)
+data/hm_with_images/customers/
 
 # Python
 __pycache__/
