@@ -90,6 +90,65 @@ ShopSight transforms how merchandising teams make product decisions by turning n
 
 ---
 
+## 🎭 Synthetic Data Generation Strategy
+
+### **Why Synthetic Data?**
+ShopSight is designed to work with real H&M catalog data but generates synthetic transaction and customer data to create a realistic demo experience without requiring access to proprietary sales information.
+
+### **Multi-Layer Data Architecture**
+
+#### **Layer 1: Real Product Catalog (H&M)**
+- **105,000+ authentic products** with real metadata (names, types, departments, colors)
+- **Actual product relationships** and category structures
+- **Real image URLs** and product descriptions
+- **Authentic brand and style information**
+
+#### **Layer 2: Intelligent Customer Synthesis**
+When H&M customer data is unavailable, the system generates:
+```python
+# Realistic customer demographics
+ages = np.random.normal(35, 12, 50_000).clip(18, 80)
+segments = ["Gen Z", "Millennial", "Gen X", "Boomer"]  # Age-based segmentation
+```
+- **50,000 synthetic customers** with realistic age distributions
+- **Demographic-based segments** that mirror real shopping behaviors
+- **Consistent customer IDs** for transaction linking
+
+#### **Layer 3: Structured Transaction Generation**
+The transaction engine creates believable purchase patterns:
+- **Seasonal trends** (higher sales in certain months)
+- **Product affinity** (customers buy related items)
+- **Price sensitivity** (realistic quantity/price relationships)
+- **Customer loyalty** (repeat purchases from same segments)
+
+### **Smart Fallback System**
+```python
+# Graceful data handling
+try:
+    customers = pd.read_parquet(real_customer_data_path)
+    print("✅ Using real H&M customer data")
+except FileNotFoundError:
+    customers = generate_synthetic_customers()
+    print("⚠️ Using synthetic customer data")
+```
+
+### **Why This Approach Works**
+1. **Demo Authenticity**: Real products make every search feel genuine
+2. **Scalable Testing**: Can generate any volume of transaction data needed
+3. **Privacy Compliance**: No real customer PII required
+4. **Reproducible Results**: Seeded random generation for consistent demos
+5. **Production Ready**: Easy to swap synthetic data for real data streams
+
+### **Data Quality Measures**
+- **Realistic distributions**: Transaction amounts, frequencies, and patterns mirror real e-commerce
+- **Temporal consistency**: Sales trends follow logical seasonal patterns
+- **Product relationships**: Higher-priced items have lower volumes, related products cluster
+- **Customer behavior**: Segments show distinct purchasing patterns and preferences
+
+This hybrid approach (real products + synthetic transactions) provides the authenticity needed for compelling demos while maintaining the flexibility to showcase all system capabilities without data dependencies.
+
+---
+
 ## Assumptions
 - Marketing/merch teams want headline answers, not just raw charts.
 - Six months of synthetic transactions is enough to illustrate trends without overwhelming the mock generator.
